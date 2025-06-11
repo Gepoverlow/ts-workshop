@@ -1,4 +1,4 @@
-import User from "../models/User.js";
+import User from "../models/User.mjs";
 
 // Return a users First Name.
 function getFirstName(user) {
@@ -72,7 +72,7 @@ function childrenPassRollercoasterRequirements(user) {
 
 }
 
-function logUserSummary(user) {
+export function logUserSummary(user) {
     const summary = `
         👤 ${getFirstName(user)} ${getLastname(user)} (Age: ${getAge(user)})
         📏 Height: ${getHeight(user)}m
@@ -80,10 +80,8 @@ function logUserSummary(user) {
         🧔 Gender: ${isUserMale(user) ? 'Male' : 'Female'}
         🧒 Children meet rollercoaster requirements: ${childrenPassRollercoasterRequirements(user) ? 'Yes' : 'No'}
         🍺 Can drink beer: ${canDrinkBeer(user) ? 'Yes' : 'No'}
-        📍 Introduction: ${printIntroductionLine(user)}
+        📍 Introduction: ${printIntroductionLine()}
         `;
 
-    console.log(summary);
+    return summary;
 }
-
-logUserSummary();
