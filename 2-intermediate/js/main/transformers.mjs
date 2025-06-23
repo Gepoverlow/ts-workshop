@@ -1,83 +1,54 @@
-// Write a function that doubles a value.
-export function double (value) {
-
+// Returns the double of a number
+export const double = (value) => {
     // Your code
-
 };
 
-// Write a function that uppercases a value.
-export function toUpperCase (value) {
-
+// Converts a string to uppercase
+export const toUpperCase = (value) => {
     // Your code
-
 };
 
-// Write a function that stringifies values.
-export function stringify (value) {
-
+// Converts any value to a string
+export const stringify = (value) => {
     // Your code
-
 };
 
-// Write a function turns a value into a string.
-export function numberToString(value) {
-
+// Capitalizes the first letter of a string
+export const capitalize = (value) => {
     // Your code
-
 };
 
-// Write a function that capitalizes a value.
-export function capitalize(value) {
-
+// Returns a new object with a specific string property capitalized (curried function)
+export const capitalizeProperty = (property) => (object) => {
     // Your code
-
 };
 
-// Write a function that capitalizes a property.
-export function capitalizeProperty(key) {
-
+// Trims whitespace from a string
+export const trimWhitespace = (value) => {
     // Your code
-
 };
 
-// Write a function that trims the whitespace on a value.
-export function trimWhitespace(value) {
-
+// Returns true if a number is even, false otherwise
+export const numberToBoolean = (value) => {
     // Your code
-
 };
 
-// Write a function that transforms a number into a boolean based on if its even or not. even=true, uneven=false.
-export function numberToBoolean(value) {
-
-    // Your code
-
+// Counts the number of words in a string
+export const countWords = (value) => {
+// Your code
 };
 
-// Write a function that gets a value and return the count of words in it.
-export function countWords(value) {
-
+// Returns a printed message using a property value from an object (curried function)
+export const print = (property) => (object) => {
     // Your code
-
 };
 
-// Write a function that takes a value from an object and returns a prints string. Example: 'Im printing this property value!: <propertyValue>'
-export function print(value) {
-
+// Sums all the numbers in an array
+export const sumArray = (value) => {
     // Your code
-
 };
 
-// Write a function that returns the sum of all the elements in an array.
-export function sumArray(value) {
-
+// Returns the length of a string or array
+export const getLength = (value) => {
     // Your code
-
-};
-
-// Write a function that returns the length of a value.
-export function getLength(value) {
-
-    // Your code
-
 };

@@ -2,14 +2,16 @@
   "name": "ts-workshop",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "jest": "^30.0.0",
+    "ts-jest": "^29.4.0",
     "typescript": "^5.8.3"
   },
   "type": "module"

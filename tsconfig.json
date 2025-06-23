@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "esnext",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "moduleResolution": "node",
+    "types": ["jest"],
+    "esModuleInterop": true,
+    "strict": true
+  },
+  "include": ["**/*.ts", "**/*.mts", "**/*.test.ts", "**/*.test.mts"]
+}
+
