@@ -1,76 +1,54 @@
-// Wrtie a function that checks if it is positive.
-export function isPositive(value) {
-
+// Checks if a number is positive
+export const isPositive = (value) => {
     // Your code
-
 };
 
-// Write a function that checks if it is even.
-export function isEven(value) {
-
+// Checks if a number is even
+export const isEven = (value) => {
     // Your code
-
 };
 
-// Write a function that check if the value has a specific langth.
-export function hasLength(value, length) {
-
+// Returns a validator that checks if a value has a specific length (curried function)
+export const hasLength = (length) => (value) => {
     // Your code
-
 };
 
-// Write a function that checks if it has a miniumum length.
-export function hasMinLength(value, minLength) {
-
+// Returns a validator that checks if a value has at least the given length (curried function)
+export const hasMinLength = (minLength) => (value) => {
     // Your code
-
 };
 
-// Write a function that checks if it has a maximum length.
-export function hasMaxLength(value, maxLength) {
-
+// Returns a validator that checks if a value has at most the given length (curried function)
+export const hasMaxLength = (maxLength) => (value) => {
     // Your code
-
 };
 
-// Write a function that checks if the value is in range.
-export function isInRange(value, min, max) {
-
+// Returns a validator that checks if a number is within a given range (inclusive) (curried function)
+export const isInRange = (min, max) => (value) => {
     // Your code
-
 };
 
-// Write a function that checks if the value has whitespace.
-export function hasWhitespace(value) {
-
+// Checks if a string contains at least one whitespace character
+export const hasWhitespace = (value) => {
     // Your code
-
 };
 
-// Write a function that checks if the values length is even.
-export function hasEvenLength(value) {
-
+// Checks if a string or array has an even length
+export const hasEvenLength = (value) => {
     // Your code
-
 };
 
-// Write a function that checks that the property has a value.
-export function hasPropertyValue(property, value) {
-
+// Returns a validator that checks if an object property equals a specific value (curried function)
+export const hasPropertyValue = (property, value) => (obj) => {
     // Your code
-
 };
 
-// Write a function that checks if a property is of type string.
-export function hasStringProperty(key) {
-
+// Returns a validator that checks if an object property is a string (curried function)
+export const hasStringProperty = (key) => (obj) => {
     // Your code
-
 };
 
-// Write a function that checks if the value is an array of only numbers.
-export function isNumberArray(value) {
-
+// Checks if every item in the array is a number
+export const isNumberArray = (value) => {
     // Your code
-
 };

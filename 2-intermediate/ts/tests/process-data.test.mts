@@ -1,161 +1,227 @@
+import { processData } from "../main/process-data.mts";
+import * as g from "../main/guards.mts"
+import * as t from "../main/transformers.mts";
+import * as v  from "../main/validators.mts";
+
 describe('processData', () => {
-  test('filters positive numbers and doubles them', () => {
-    // Input: [1, -2, 3, 0, "5", null, undefined, {}, []]
-    // Expected: 
-    //   valid: [2, 6]
-    //   invalid: [-2, 0, "5", null, undefined, {}, []]
+  test('1. filters positive numbers and doubles them', () => {
+    const data = [1, -2, 3, 0, "5", null, undefined, {}, []];
+    const [valid, invalid] = processData();
+
+    const expectedValid = [2, 6];
+    const expectedInvalid = [-2, 0, "5", null, undefined, {}, []];
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters even numbers and transforms them into booleans', () => {
-    // Input: [2, 3, 4, 5, "6", {}, true, null]
-    // Expected:
-    //   valid: [true, true]
-    //   invalid: [3, 5, "6", {}, true, null]
+  test('2. filters even numbers and transforms them into booleans', () => {
+    const data = [2, 3, 4, 5, "6", {}, true, null];
+
+    const [valid, invalid] = processData();
+
+    const expectedValid = [true, true];
+    const expectedInvalid = [3, 5, "6", {}, true, null];
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters strings with even length and counts words', () => {
-    // Input: ["hello world", "hi", "typescript", "", 123, null]
-    // Expected:
-    //   valid: [2]
-    //   invalid: ["hi", "typescript", "", 123, null]
+  test('3. filters strings with even length and counts words', () => {
+    const data = ["hello world", "hi", "typescript", "", 123, null];
+    const [valid, invalid] = processData();
+
+    const expectedValid = [1, 1, 0];
+    const expectedInvalid = ["hello world", 123, null];
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters strings with whitespace and trims them', () => {
-    // Input: ["  hello  ", "world", "  ", "flower", 42, false]
-    // Expected:
-    //   valid: ["hello", ""]
-    //   invalid: ["world", "flower", 42, false]
+  test('4. filters strings with whitespace and trims them', () => {
+    const data = ["  hello  ", "world", "  ", "flower", 42, false];
+    const [valid, invalid] = processData();
+
+    const expectedValid = ["hello", ""];
+    const expectedInvalid = ["world", "flower", 42, false]
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters strings with minimum length and capitalizes them', () => {
-    // Input: ["ts", "type", "script", "js", 123, null]
-    // Expected:
-    //   valid: ["Type", "Script"]
-    //   invalid: ["ts", "js", 123, null]
+  test('5. filters strings with minimum length and capitalizes them', () => {
+    const data = ["ts", "type", "script", "js", 123, null];
+    const [valid, invalid] = processData();
+
+    const expectedValid = ["Type", "Script"];
+    const expectedInvalid = ["ts", "js", 123, null]
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters strings with max length and uppercases them', () => {
-    // Input: ["hi", "code", "typescript", "JS", true, []]
-    // Expected:
-    //   valid: ["HI", "CODE", "JS"]
-    //   invalid: ["typescript", true, []]
+  test('6. filters strings with max length and uppercases them', () => {
+    const data = ["hi", "code", "typescript", "JS", true, []];
+    const [valid, invalid] = processData();
+
+    const expectedValid = ["HI", "CODE", "JS"];
+    const expectedInvalid = ["typescript", true, []];
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters numbers in range and stringifies them', () => {
-    // Input: [1, 10, 5, -1, "5", 15, 8, null]
-    // Range: 5–10
-    // Expected:
-    //   valid: ["10", "5", "8"]
-    //   invalid: [1, -1, "5", 15, null]
+  test('7. filters numbers in range and stringifies them', () => {
+    const data = [1, 10, 5, -1, "5", 15, 8, null];
+    const [valid, invalid] = processData();
+
+    const expectedValid = ["10", "5", "8"];
+    const expectedInvalid = [1, -1, "5", 15, null];
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters objects with name property and prints them', () => {
-    // Input: [{ name: "TypeScript" }, { title: "JS" }, {}, null, "name", { name: "Alice" }]
-    // Expected:
-    //   valid: [
-    //     "Im printing this property value!: TypeScript",
-    //     "Im printing this property value!: Alice"
-    //   ]
-    //   invalid: [{ title: "JS" }, {}, null, "name"]
+  test('8. filters objects with name property and prints them', () => {
+    const data = [{ name: "TypeScript" }, { title: "JS" }, {}, null, "name", { name: "Alice" }];
+    const [valid, invalid] = processData();
+
+    const expectedValid = ["I'm printing this property value!: TypeScript", "I'm printing this property value!: Alice"];
+    const expectedInvalid = [{ title: "JS" }, {}, null, "name"];
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters objects that have a specific property and prints them', () => {
-    // Input: [{ id: 1 }, { title: "Book" }, { id: 2, name: "A" }, 42, null, {}, { title: "Golang" }]
-    // Property: "title"
-    // Expected:
-    //   valid: [
-    //     "Im printing this property value!: Book",
-    //     "Im printing this property value!: Golang"
-    //   ]
-    //   invalid: [{ id: 1 }, { id: 2, name: "A" }, 42, null, {}]
+  test('9. filters objects that have a specific property and prints them', () => {
+    const data = [ { id: 1 }, { title: "Harry Potter" }, { id: 2, name: "Harry Potter" }, 42, null, {}, { title: "Harry Potter" }, { title: "Lord of the Rings" }];
+    const [valid, invalid] = processData();
+
+    const expectedValid = ["I'm printing this property value!: Harry Potter", "I'm printing this property value!: Harry Potter"];
+    const expectedInvalid = [{ id: 1 }, { id: 2, name: "Harry Potter" }, 42, null, {}, { title: "Lord of the Rings" }];
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters strings with whitespace and returns word count', () => {
-    // Input: ["hello world", "single", "this is a test", 123, {}, false]
-    // Expected:
-    //   valid: [2, 4]
-    //   invalid: ["single", 123, {}, false]
+  test('10. filters strings with whitespace and returns word count', () => {
+    const data = ["hello world", "single", "this is a test", 123, {}, false];
+    const [valid, invalid] = processData();
+
+    const expectedValid = [2, 4];
+    const expectedInvalid = ["single", 123, {}, false];
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters numbers that are even and positive, then stringifies them', () => {
-    // Input: [2, 4, -4, 3, "2", 0, {}, null]
-    // Expected:
-    //   valid: ["2", "4"]
-    //   invalid: [-4, 3, "2", 0, {}, null]
+  test('11. filters numbers that are even and positive, then stringifies them', () => {
+    const data = [2, 4, -4, 3, "2", 0, {}, null];
+    const [valid, invalid] = processData();
+
+    const expectedValid = ["2", "4"];
+    const expectedInvalid = [-4, 3, "2", 0, {}, null]
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters strings with even length and no whitespace, then capitalizes them', () => {
-    // Input: ["hello", "flower", "   spaced  ", "code", "TS", 42]
-    // Expected:
-    //   valid: ["Flower", "Code"]
-    //   invalid: ["hello", "   spaced  ", "TS", 42]
+  test('12. filters strings with even length and no whitespace, then capitalizes them', () => {
+    const data = ["hello", "flower", "   spaced  ", "code", "TS", 42];
+    const [valid, invalid] = processData();
+
+    const expectedValid = ["Flower", "Code", "TS"];
+    const expectedInvalid = ["hello", "   spaced  ", 42]
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters objects with name property and a name length > 4, then prints them', () => {
-    // Input: [{ name: "JS" }, { name: "Carlos" }, {}, { name: "Code" }, null]
-    // Expected:
-    //   valid: ["Im printing this property value!: Carlos"]
-    //   invalid: [{ name: "JS" }, {}, { name: "Code" }, null]
+  test('13. filters objects with name property and a name length > 4, then prints them', () => {
+    const data = [{ name: "JS" }, { name: "Carlos" }, {}, { name: "Code" }, null];
+    const [valid, invalid] = processData();
+
+    const expectedValid = ["I'm printing this property value!: Carlos"];
+    const expectedInvalid = [{ name: "JS" }, {}, { name: "Code" }, null];
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters strings that are exactly 5 characters long and uppercases them', () => {
-    // Input: ["apple", "pear", "grape", "fruit", "fig", "melon", 123]
-    // Expected:
-    //   valid: ["APPLE", "GRAPE", "FRUIT"]
-    //   invalid: ["pear", "fig", "melon", 123]
+  test('14. filters strings that are exactly 5 characters long and uppercases them', () => {
+    const data = ["apple", "pear", "grape", "fruit", "fig", "melon", 123];
+    const [valid, invalid] = processData();
+
+    const expectedValid = ["APPLE", "GRAPE", "FRUIT", "MELON"];
+    const expectedInvalid = ["pear", "fig", 123];
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters strings that have even length and have whitespace, then trims them', () => {
-    // Input: ["hello ", "hi  ", "  world", "TS", "typescript", {}, null]
-    // Expected:
-    //   valid: ["hello", "world"]
-    //   invalid: ["hi  ", "TS", "typescript", {}, null]
+  test('15. filters strings that have even length and have whitespace, then trims them', () => {
+    const data = ["hello ", "hi  ", "  world", "TS", "typescript", {}, null];
+    const [valid, invalid] = processData();
+
+    const expectedValid = ["hello", "hi"];
+    const expectedInvalid = ["  world", "TS", "typescript", {}, null];
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-    test('filters arrays with even length and returns their lengths', () => {
-    // Input:
-    // [ [1, 2], [1], "not an array", [], [1, 2, 3, 4], {}, null ]
+  test('16. filters arrays with even length and returns their lengths', () => {
+    const data = [[1, 2], [1], "not an array", [], [1, 2, 3, 4], {}, null];
+    const [valid, invalid] = processData();
 
-    // Expected:
-    // valid: [2, 0, 4]
-    // invalid: [[1], "not an array", {}, null]
+    const expectedValid = [2, 0, 4];
+    const expectedInvalid = [[1], "not an array", {}, null];
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters arrays of numbers and returns the sum', () => {
-    // Input:
-    // [ [1, 2], [1, "2"], [], ["a", "b"], [10, 5], {}, null ]
+  test('17. filters arrays of numbers and returns the sum', () => {
+    const data = [[1, 2], [1, "2"], [], ["a", "b"], [10, 5], {}, null];
+    const [valid, invalid] = processData();
 
-    // Expected:
-    // valid: [3, 0, 15]
-    // invalid: [ [1, "2"], ["a", "b"], {}, null ]
+    const expectedValid = [3, 0, 15];
+    const expectedInvalid = [[1, "2"], ["a", "b"], {}, null]
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('filters objects with "title" property and capitalizes its value', () => {
-    // Input:
-    // [ { title: "hello" }, { name: "world" }, { title: 42 }, {}, null ]
+  test('18. filters objects with "title" property and capitalizes its value', () => {
+    const data = [{ title: "hello" }, { title: 123 }, { name: "test" }, null];
+    const [valid, invalid] = processData();
 
-    // Expected:
-    // valid: ["Hello"]
-    // invalid: [{ name: "world" }, { title: 42 }, {}, null]
+    const expectedValid = [{ title: "Hello" }];
+    const expectedInvalid = [{ title: 123 }, { name: "test" }, null];
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('returns no valid results when all fail type guard', () => {
-    // Input: ["1", {}, null, undefined, "two", []]
-    // Expected:
-    // valid: []
-    // invalid: ["1", {}, null, undefined, "two", []]
+  test('19. returns no valid results when all fail type guard', () => {
+    const data = ["a", {}, null, false];
+    const [valid, invalid] = processData();
+
+    const expectedValid = [];
+    const expectedInvalid = ["a", {}, null, false];
+
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('returns no valid results when all validations fail', () => {
-    // Input:
-    // ["abc", "nospace", "short", 123, {}, null]
+  test('20. returns no valid results when all validations fail', () => {
+    const data = ["odd", "nomatch", "nospace", 123, {}, null];
+    const [valid, invalid] = processData();
 
-    // Explanation:
-    // None of these strings have both even length **and** whitespace,
-    // and the non-string inputs should fail the guard entirely.
+    const expectedValid = [];
+    const expectedInvalid = ["odd", "nomatch", "nospace", 123, {}, null];
 
-    // Expected:
-    // valid: []
-    // invalid: ["abc", "nospace", "short", 123, {}, null]
+    expect(valid).toEqual(expectedValid);
+    expect(invalid).toEqual(expectedInvalid);
   });
 });
