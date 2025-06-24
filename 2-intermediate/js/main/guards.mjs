@@ -28,7 +28,7 @@ export const hasProperty = (key) => (value) => {
     // Your code
 };
 
-// Checks if an object has a 'name' property
+// Checks if an object has a 'name' property that is of type string
 export const hasNameProperty = (value) => {
     // Your code
 };
