@@ -196,13 +196,13 @@ describe('processData', () => {
     expect(invalid).toEqual(expectedInvalid);
   });
 
-  test('17. filters arrays of numbers and returns the sum', () => {
-    const data = [[1, 2], [1, "2"], [], ["a", "b"], [10, 5], {}, null];
+  test('17. filters arrays of positive numbers with even length and returns the sum', () => {
+    const data = [[1, 2], [1, -2], [1, 2, 3], [], ["a", "b"], [10, 5, 0], [10, 5, 6, 4], {}, null];
 
     // Use processData here
 
-    const expectedValid = [3, 0, 15];
-    const expectedInvalid = [[1, "2"], ["a", "b"], {}, null]
+    const expectedValid = [3, 0, 25];
+    const expectedInvalid = [[1, -2], [1, 2, 3], ["a", "b"], [10, 5, 0], {}, null];
 
     expect(valid).toEqual(expectedValid);
     expect(invalid).toEqual(expectedInvalid);

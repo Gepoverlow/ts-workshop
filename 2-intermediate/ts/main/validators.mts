@@ -47,3 +47,8 @@ export const hasPropertyValue = (property, value) => (obj) => {
 export const hasStringProperty = (key) => (obj) => {
     // Your code
 };
+
+// Checks if every item in the array is a positive number
+export const isAllPositiveArray = (value) => {
+    // Your code
+};
