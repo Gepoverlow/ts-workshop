@@ -1,5 +1,5 @@
-import { logUserSummary } from "../main/log-user-summary.mjs";
-import User from "../main/User.mjs";
+import { logUserSummary } from "../main/log-user-summary.mts";
+import User from "../main/User.mts";
 
 describe('logUserSummary', () => {
     test('summary contains user name, lastname and age line', () => { 
