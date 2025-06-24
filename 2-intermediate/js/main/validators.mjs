@@ -47,8 +47,3 @@ export const hasPropertyValue = (property, value) => (obj) => {
 export const hasStringProperty = (key) => (obj) => {
     // Your code
 };
-
-// Checks if every item in the array is a number
-export const isNumberArray = (value) => {
-    // Your code
-};
