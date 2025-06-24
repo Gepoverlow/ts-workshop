@@ -225,11 +225,8 @@ describe('processData', () => {
 
     // Use processData here
 
-    const expectedValid = [];
-    const expectedInvalid = ["a", {}, null, false];
-
-    expect(valid).toEqual(expectedValid);
-    expect(invalid).toEqual(expectedInvalid);
+    expect(valid).toEqual([]);
+    expect(invalid).toEqual(data);
   });
 
   test('20. returns no valid results when all validations fail', () => {
@@ -237,10 +234,7 @@ describe('processData', () => {
     
     // Use processData here
 
-    const expectedValid = [];
-    const expectedInvalid = ["odd", "nomatch", "nospace", 123, {}, null];
-
-    expect(valid).toEqual(expectedValid);
-    expect(invalid).toEqual(expectedInvalid);
+    expect(valid).toEqual([]);
+    expect(invalid).toEqual(data);
   });
 });
