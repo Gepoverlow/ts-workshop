@@ -11,6 +11,14 @@ export default tseslint.config(
     languageOptions: {
       parser: tseslint.parser,
     },
+    rules: {
+      '@typescript-eslint/explicit-function-return-type': ['error', {
+        allowExpressions: false,
+        allowTypedFunctionExpressions: false,
+        allowHigherOrderFunctions: false,
+        allowDirectConstAssertionInArrowFunctions: false,
+      }],
+    }
   },
 
   {
