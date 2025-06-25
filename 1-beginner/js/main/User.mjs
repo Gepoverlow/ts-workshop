@@ -12,7 +12,7 @@ const User = {
         {
             firstname: 'Melissa',
             lastname: 'Doe',
-            age: 7,
+            age: "7",
             gender: 'Female',
             height: 1.20,
             birthPlace: 'Colombia',
@@ -22,7 +22,6 @@ const User = {
             firstname: 'Ana',
             lastname: 'Doe',
             age: 5,
-            height: 1,
             gender: 'Female',
             birthPlace: 'Belgium',
             nationalities: ['Belgium']
