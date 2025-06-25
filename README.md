@@ -85,11 +85,11 @@ In this intermediate-level exercise, you’ll build on your TypeScript skills by
 
 Just like in the beginner section, you’ll start with a JavaScript version and then re-implement the logic in TypeScript — but this time using more advanced TypeScript features such as:
 
-- Type guards
-- Generics
-- Type inference
-- Currying and functional utilities
-- Narrowing unknown values
+- Type guards and custom narrowing functions
+- Generics and reusable utility types
+- Type inference for curried and higher-order function
+- Type-safe handling of unknown values
+- Strongly-types functional transformations
 
 ---
 
@@ -112,8 +112,8 @@ Check the unit tests for input/output examples and expected behavior.
 
 ### 2. Run the JavaScript Tests
 
-Run the test file located at:  
-`2-intermediate/js/tests/process-data.test.mjs`
+Run the test file:  
+`npm test 2-intermediate/js/tests/process-data.test.mjs`
 
 Ensure all the tests pass before moving on to the TypeScript version.
 
@@ -137,8 +137,8 @@ You can reuse and refactor your JavaScript logic into well-typed, modular TypeSc
 
 ### 4. Run the TypeScript Tests
 
-Run the test file located at:  
-`2-intermediate/ts/tests/process-data.test.mts`
+Run the test file:  
+`npm test 2-intermediate/ts/tests/process-data.test.mts`
 
 Make sure all the tests pass and compare behavior between the JavaScript and TypeScript versions.
 
@@ -148,10 +148,10 @@ Make sure all the tests pass and compare behavior between the JavaScript and Typ
 
 By completing this intermediate exercise, you’ll:
 
-- Deepen your understanding of TypeScript’s type system
-- Practice type narrowing and guards for unknown or dynamic input
-- Work with functional patterns and curried validators
-- Build reusable, type-safe utilities
+- Deepen your understanding of TypeScript’s type system and inference capabilities
+- Practice safely narrowing unknown values using custom type guards
+- Apply TypeScript to functional patterns like currying and composition
+- Build reusable, strongly-typed validators and transformation utilities
 
 ---
 
@@ -159,9 +159,48 @@ By completing this intermediate exercise, you’ll:
 
 - Don’t forget to add types to the return values of your guards and validators.
 - Use `unknown` for input values and narrow them using guard functions.
-- Split logic into helper functions if it helps with readability and reuse.
 - Let the compiler guide you — many of these bugs and edge cases will be caught by TypeScript automatically.
 
 ---
 
-Happy coding! 🎉
+## 💥 Advanced Level
+
+Ready to truly level up your TypeScript skills?  
+At this stage, it's time to move beyond typical application logic and dive deep into **TypeScript's type system itself**.
+
+For the advanced portion of this workshop, we recommend working through:
+
+👉 [Type Challenges](https://github.com/type-challenges/type-challenges)
+
+This is a curated collection of over 100+ exercises focused entirely on **type-level programming** — from basic utility types to complex recursive type logic.
+
+---
+
+### 💡 Why Type Challenges?
+
+These exercises will help you:
+
+- Develop an intuitive grasp of advanced type features like conditional types, mapped types, recursive types, template literal types, and more
+- Solve real-world type problems without relying on runtime logic
+- Learn how the TypeScript compiler “thinks”
+- Become more confident in writing robust, type-safe libraries and APIs
+
+---
+
+### 🏁 Getting Started
+
+1. Visit the [Type Challenges GitHub Repository](https://github.com/type-challenges/type-challenges)
+2. Follow the setup instructions in their README
+3. Start with the “Easy” challenges and work your way up
+
+No tests to run locally here — everything runs directly in the TypeScript playground!
+
+---
+
+### ✨ Tip
+
+Even solving a few challenges can greatly boost your confidence and understanding of TypeScript’s most powerful features. Stick with it — it's worth it!
+
+---
+
+Happy typing! 🎉
