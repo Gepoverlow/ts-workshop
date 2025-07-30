@@ -27,7 +27,9 @@ You can also run the JavaScript and TypeScript tests separately — see the inst
 
 Open the file `1-beginner/js/main/log-user-summary.mjs`.
 
-Complete all the functions using the provided `User` object.
+Complete the missing logic for each function.
+Fix log-user-summary.mjs and users.mjs.
+No need to change anything from the tests, all the expected results should already be there.
 
 ---
 
@@ -45,7 +47,7 @@ Once **all tests pass**, move on to the TypeScript version.
 
 Open the file `1-beginner/ts/main/log-user-summary.mts`.
 
-Re-implement the same functions using TypeScript features like types, interfaces, and type annotations.
+Re-implement the same functions using TypeScript features like types, interfaces, and type annotations. Maybe also Enums?
 
 ---
 
