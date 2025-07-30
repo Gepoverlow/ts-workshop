@@ -77,7 +77,7 @@ export function logUserSummary(user) {
         👤 ${getFirstName(user)} ${getLastname(user)} (Age: ${getAge(user)})
         📏 Height: ${getHeight(user)}m
         🚘 Driving Tutor: ${canBeDrivingTutor(user) ? 'Yes' : 'No'}
-        🧔 Gender: ${isUserMale(user) ? 'Male' : 'Female'}
+        🧔 Gender: ${isMale(user) ? 'Male' : 'Female'}
         🧒 Children meet rollercoaster requirements: ${childrenPassRollercoasterRequirements(user) ? 'Yes' : 'No'}
         🍺 Can drink beer: ${canDrinkBeer(user) ? 'Yes' : 'No'}
         📍 Introduction: ${printIntroductionLine()}
