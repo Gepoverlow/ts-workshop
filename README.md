@@ -48,6 +48,7 @@ Once **all tests pass**, move on to the TypeScript version.
 Open the file `1-beginner/ts/main/log-user-summary.mts`.
 
 Re-implement the same functions using TypeScript features like types, interfaces, and type annotations. Maybe also Enums?
+Tip: start by tidying up the users.mts file.
 
 ---
 
