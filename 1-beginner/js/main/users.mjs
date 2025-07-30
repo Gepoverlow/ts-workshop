@@ -13,7 +13,7 @@ const users = [
       {
         firstname: "Melissa",
         lastname: "Doe",
-        age: "7",
+        age: "7 years",
         gender: "Female",
         height: 1.2,
         birthPlace: "Colombia",
@@ -24,6 +24,7 @@ const users = [
         lastname: "Doe",
         age: 5,
         gender: "Female",
+        height: "1.1m",
         birthPlace: "Belgium",
         nationalities: ["belgium"],
       },
