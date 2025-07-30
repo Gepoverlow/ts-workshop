@@ -5,10 +5,10 @@ const users = [
     age: 40,
     gender: "Male",
     height: 1.8,
-    hasDriversLicense: true,
+    driversLicense: true,
     yearsOfDrivingExperience: 10,
     placeOfBirth: "Belgium",
-    nationalities: ["Belgium", "Spain", "France"],
+    nationalities: ["spain", "belguim", "france"],
     children: [
       {
         firstname: "Melissa",
@@ -17,7 +17,7 @@ const users = [
         gender: "Female",
         height: 1.2,
         birthPlace: "Colombia",
-        nationalities: ["Colombia", "Belgium"],
+        nationalities: ["belgium", "spain"],
       },
       {
         firstname: "Ana",
@@ -25,7 +25,7 @@ const users = [
         age: 5,
         gender: "Female",
         birthPlace: "Belgium",
-        nationalities: ["Belgium"],
+        nationalities: ["belgium"],
       },
     ],
   },
@@ -38,7 +38,7 @@ const users = [
     hasDriversLicense: false,
     yearsOfDrivingExperience: 0,
     placeOfBirth: "Canada",
-    nationalities: ["Canada", "UK"],
+    nationatilies: ["canada", "uk"],
     children: [
       {
         firstname: "Lisa",
@@ -46,20 +46,20 @@ const users = [
         age: 1,
         gender: "Female",
         birthPlace: "Belgium",
-        nationalities: ["Belgium"],
+        nationalities: ["belgium"],
       },
     ],
   },
   {
-    firstName: "Carlos",
-    lastName: "Martinez",
+    firstname: "Carlos",
+    lastname: "Martinez",
     age: 45,
     gender: "Male",
     heigth: 1.9,
     hasDriversLicense: false,
     yearsOfDrivingExperience: 0,
     placeOfBirth: "Mexico",
-    nationalities: ["Mexico"],
+    nationalities: ["mexico"],
     children: [
       {
         firstname: "Mateo",
@@ -68,7 +68,7 @@ const users = [
         gender: "Male",
         height: 1.2,
         birthPlace: "Mexico",
-        nationalities: ["Mexico", "USA"],
+        nationalities: ["méxico", "usa"],
       },
     ],
   },

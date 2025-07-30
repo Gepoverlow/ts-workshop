@@ -6,7 +6,7 @@ function getFirstName(user) {
 }
 
 // Return a users Last Name.
-function getLastname(user) {
+function getLastName(user) {
   // Your code
 }
 
@@ -26,30 +26,35 @@ function isAdult(user) {
 }
 
 // Return if user is Male.
-export function isUserMale(user) {
+function isUserMale(user) {
   // Your code
 }
 
 // Return if user can be a driving tutor (has drivers license + has at least 3 years driving experience).
-export function canBeDrivingTutor(user) {
+function canBeDrivingTutor(user) {
   // Your code
 }
 
 // Return if user can drink beer. Use the isAdult function.
-export function canDrinkBeer() {
+function canDrinkBeer(user) {
   const isAdult = isAdult(User);
 
   // Your code
 }
 
 // Return the users introduction (Hey I'm ... including FirstName, LastName, age, and birthPlace).
-export function printIntroductionLine(user) {
+function printIntroductionLine(user) {
   // Your code
 }
 
 // To be able to join a rollercoaster, all children must be at least 5 years of age and have
 // a height of 1.10 or higher. Return if the users children pass these requirements.
-export function childrenPassRollercoasterRequirements(user) {
+function childrenPassRollercoasterRequirements(user) {
+  // Your code
+}
+
+// Return if the user has a nationality from the country he was born in
+function hasBirthPlaceNationality(user) {
   // Your code
 }
 
@@ -63,6 +68,9 @@ export function logUserSummary(user) {
           childrenPassRollercoasterRequirements(user) ? "Yes" : "No"
         }
         🍺 Can drink beer: ${canDrinkBeer(user) ? "Yes" : "No"}
+        🌍 Has nationality from the country he was born in: ${
+          hasBirthPlaceNationality(user) ? "Yes" : "No"
+        }
         📍 Introduction: ${printIntroductionLine()}
         `;
 
