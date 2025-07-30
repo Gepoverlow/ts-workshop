@@ -20,36 +20,36 @@ function getHeight(user) {
   // Your code
 }
 
-// Return if user is Male.
-function isUserMale(user) {
-  // Your code
-}
-
-// Return if user can be a driving tutor (has drivers license + has at least 3 years driving experience).
-function canBeDrivingTutor(user) {
-  // Your code
-}
-
 // Return if user is Adult.
 function isAdult(user) {
   // Your code
 }
 
+// Return if user is Male.
+export function isUserMale(user) {
+  // Your code
+}
+
+// Return if user can be a driving tutor (has drivers license + has at least 3 years driving experience).
+export function canBeDrivingTutor(user) {
+  // Your code
+}
+
 // Return if user can drink beer. Use the isAdult function.
-function canDrinkBeer() {
+export function canDrinkBeer() {
   const isAdult = isAdult(User);
 
   // Your code
 }
 
 // Return the users introduction (Hey I'm ... including FirstName, LastName, age, and birthPlace).
-function printIntroductionLine(user) {
+export function printIntroductionLine(user) {
   // Your code
 }
 
 // To be able to join a rollercoaster, all children must be at least 5 years of age and have
 // a height of 1.10 or higher. Return if the users children pass these requirements.
-function childrenPassRollercoasterRequirements(user) {
+export function childrenPassRollercoasterRequirements(user) {
   // Your code
 }
 
