@@ -9,9 +9,11 @@ const expectedResults = [
     gender: "🧔 Gender: Male",
     requirements: "🧒 Children meet rollercoaster requirements: Yes",
     beer: "🍺 Can drink beer: Yes",
+    nationality: "🌍 Has nationality from the country he was born in: Yes",
+    children:
+      "Children have nationality from the country they were born in: No",
     intro:
       "📍 Introduction: Hey I'm John Doe. I am 40 years old and my place of birth is Belgium.",
-    nationality: "🌍 Has nationality from the country he was born in: Yes",
   },
   {
     name: "👤 Emma Smith (Age: 21)",
@@ -20,9 +22,11 @@ const expectedResults = [
     gender: "🧔 Gender: Female",
     requirements: "🧒 Children meet rollercoaster requirements: No",
     beer: "🍺 Can drink beer: Yes",
+    nationality: "🌍 Has nationality from the country he was born in: Yes",
+    children:
+      "Children have nationality from the country they were born in: Yes",
     intro:
       "📍 Introduction: Hey I'm Emma Smith. I am 21 years old and my place of birth is Canada.",
-    nationality: "🌍 Has nationality from the country he was born in: Yes",
   },
   {
     name: "👤 Carlos Martinez (Age: 45)",
@@ -31,9 +35,11 @@ const expectedResults = [
     gender: "🧔 Gender: Male",
     requirements: "🧒 Children meet rollercoaster requirements: Yes",
     beer: "🍺 Can drink beer: Yes",
+    nationality: "🌍 Has nationality from the country he was born in: Yes",
+    children:
+      "Children have nationality from the country they were born in: Yes",
     intro:
       "📍 Introduction: Hey I'm Carlos Martinez. I am 45 years old and my place of birth is Mexico.",
-    nationality: "🌍 Has nationality from the country he was born in: Yes",
   },
 ];
 
@@ -72,11 +78,16 @@ describe("logUserSummary", () => {
         expect(summary).toContain(expectedResult.beer);
       });
 
-      test("summary contains user introduction line", () => {
-        expect(summary).toContain(expectedResult.intro);
-      });
       test("summary contains user has nationality of place of birth line", () => {
         expect(summary).toContain(expectedResult.nationality);
+      });
+
+      test("summary contains children have nationality of place of birth line", () => {
+        expect(summary).toContain(expectedResult.children);
+      });
+
+      test("summary contains user introduction line", () => {
+        expect(summary).toContain(expectedResult.intro);
       });
     });
   });

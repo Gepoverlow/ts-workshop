@@ -58,6 +58,11 @@ function hasBirthPlaceNationality(user) {
   // Your code
 }
 
+// Return if all the children of a user have a nationality from the country they wre born in. Reuse 'hasBirthPlaceNationality'
+function childrenHaveBirthPlaceNationality(user) {
+  // Your code
+}
+
 export function logUserSummary(user) {
   const summary = `
         👤 ${getFirstName(user)} ${getLastname(user)} (Age: ${getAge(user)})
@@ -70,6 +75,9 @@ export function logUserSummary(user) {
         🍺 Can drink beer: ${canDrinkBeer(user) ? "Yes" : "No"}
         🌍 Has nationality from the country he was born in: ${
           hasBirthPlaceNationality(user) ? "Yes" : "No"
+        }
+        🚩 Children have nationality from the country they were born in: ${
+          childrenHaveBirthPlaceNationality(user) ? "Yes" : "No"
         }
         📍 Introduction: ${printIntroductionLine()}
         `;
