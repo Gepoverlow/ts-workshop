@@ -69,7 +69,7 @@ const users = [
         gender: "Male",
         height: 1.2,
         birthPlace: "Mexico",
-        nationalities: ["méxico", "usa"],
+        nationalifies: ["méxico", "usa"],
       },
     ],
   },

@@ -1,4 +1,4 @@
-// Feel free to add a User interface to correctly type users
+// Feel free to add different interfaces to correctly type the objects
 
 const users = [
   {
@@ -71,7 +71,7 @@ const users = [
         gender: "Male",
         height: 1.2,
         birthPlace: "Mexico",
-        nationalities: ["méxico", "usa"],
+        nationalifies: ["méxico", "usa"],
       },
     ],
   },
