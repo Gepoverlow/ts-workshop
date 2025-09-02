@@ -1,0 +1,78 @@
+const users = [
+  {
+    firstName: "John",
+    lastName: "Doe",
+    age: 40,
+    gender: "Male",
+    height: 1.8,
+    hasDriversLicense: true,
+    yearsOfDrivingExperience: 10,
+    placeOfBirth: "Belgium",
+    nationalities: ["Spain", "Belgium", "France"],
+    children: [
+      {
+        firstname: "Melissa",
+        lastname: "Doe",
+        age: 7,
+        gender: "Female",
+        height: 1.2,
+        placeOfBirth: "Colombia",
+        nationalities: ["belgium", "spain"],
+      },
+      {
+        firstname: "Ana",
+        lastname: "Doe",
+        age: 5,
+        gender: "Female",
+        height: 1.1,
+        placeOfBirth: "Belgium",
+        nationalities: ["belgium"],
+      },
+    ],
+  },
+  {
+    firstName: "Emma",
+    lastName: "Smith",
+    age: 21,
+    gender: "Female",
+    height: 1.65,
+    hasDriversLicense: false,
+    yearsOfDrivingExperience: 0,
+    placeOfBirth: "Canada",
+    nationalities: ["Canada", "UK"],
+    children: [
+      {
+        firstname: "Lisa",
+        lastname: "Smith",
+        age: 1,
+        gender: "Female",
+        placeOfBirth: "Belgium",
+        nationalities: ["Belgium"],
+      },
+    ],
+  },
+  {
+    firstName: "Carlos",
+    lastName: "Martinez",
+    age: 45,
+    gender: "Male",
+    height: 1.9,
+    hasDriversLicense: false,
+    yearsOfDrivingExperience: 0,
+    placeOfBirth: "Mexico",
+    nationalities: ["Mexico"],
+    children: [
+      {
+        firstname: "Mateo",
+        lastname: "Martinez",
+        age: 7,
+        gender: "Male",
+        height: 1.2,
+        placeOfBirth: "Mexico",
+        nationalities: ["Mexico", "USA"],
+      },
+    ],
+  },
+];
+
+export default users;
